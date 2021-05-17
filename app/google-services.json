@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "71529842518",
+    "firebase_url": "https://popup-2820b-default-rtdb.firebaseio.com",
+    "project_id": "popup-2820b",
+    "storage_bucket": "popup-2820b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71529842518:android:b1ba528773075b13df78f7",
+        "android_client_info": {
+          "package_name": "com.example.popup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71529842518-1krbmflqtr1usl6s4lnne4gemgge5uph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCetuD0u9BZJi-gK0vid74iyxEjLHdhQ9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71529842518-1krbmflqtr1usl6s4lnne4gemgge5uph.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
