@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Popup">
-        <activity android:name=".PopupActivity" android:theme="@android:style/Theme.Dialog" />
 
         <activity android:name=".MainActivity">
             <intent-filter>

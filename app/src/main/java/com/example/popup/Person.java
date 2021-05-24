@@ -1,5 +1,7 @@
 package com.example.popup;
 
+import android.widget.EditText;
+
 public class Person {
 
     String name;
@@ -10,6 +12,9 @@ public class Person {
         this.name = name;
         this.age = Age;
         this.NickName = Nickname;
+    }
+    public Person(){
+
     }
 
     public String getName() {

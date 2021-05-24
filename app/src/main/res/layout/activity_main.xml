@@ -1,46 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="16dp"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:paddingBottom="8dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    tools:context=".MainActivity" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="가족구성원 추가" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginRight="18dp"
+        android:onClick="clickSave"
+        android:text="save" />
 
-    <LinearLayout
-        android:paddingBottom="8dp"
-        android:orientation="horizontal"
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="291dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/btn"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:hint="이름"
+        android:inputType="text" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="mOnPopupClick"
-            android:text="추가"
-            android:textColor="@color/black" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:paddingBottom="8dp"
-        android:orientation="horizontal"
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="286dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toStartOf="@+id/btn"
+        android:ems="10"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/txtResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+        android:hint="나이"
+        android:inputType="number" />
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/NickName"
+        android:layout_width="286dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toStartOf="@+id/btn"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="별명"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
+        android:layout_below="@+id/NickName"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="가족구성원"
+        android:padding="8dp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

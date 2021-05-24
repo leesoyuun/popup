@@ -3,7 +3,6 @@ package com.example.popup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -17,34 +16,65 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView txtResult;
 
+    TextView tv;
+    EditText Name;
+    EditText age;
+    EditText NickName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtResult = (TextView)findViewById(R.id.txtResult);
+        tv=findViewById(R.id.tv);
+        Name=findViewById(R.id.Name);
+        age=findViewById(R.id.age);
+        NickName=findViewById(R.id.NickName);
+
     }
 
-    //버튼
-    public void mOnPopupClick(View v){
-        //데이터 담아서 팝업(액티비티) 호출
-        Intent intent = new Intent(this, PopupActivity.class);
-        intent.putExtra("data", "Test Popup");
-        startActivityForResult(intent, 1);
-    }
+    public void clickSave(View view) {
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode==1){
-            if(resultCode==RESULT_OK){
-                //데이터 받기
-                String result = data.getStringExtra("result");
-                txtResult.setText(result);
+        String data = Name.getText().toString();
+
+        FirebaseDatabase firebaseDatabase= FirebaseDatabase.getInstance();
+
+        DatabaseReference rootRef= firebaseDatabase.getReference();
+
+        String name = Name.getText().toString();
+        String Age = age.getText().toString();
+        String Nickname = NickName.getText().toString();
+
+        Person person = new Person(name, Age, Nickname);
+
+        DatabaseReference personRef = rootRef.child("persons");
+        personRef.push().setValue(person);
+
+        personRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                StringBuffer buffer = new StringBuffer();
+
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+                    Person person = snapshot.getValue(Person.class);
+                    String name = person.getName();
+                    String Age = person.getAge();
+                    String Nickname = person.getNickName();
+
+                    buffer.append("이름 : " + name+"\n"+"나이 : " + Age+"\n"+ "별명 : " + Nickname+"\n\n");
+                }
+                tv.setText(buffer);
             }
-        }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 }
-
